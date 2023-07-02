@@ -11,6 +11,13 @@ RUN echo $TZ > /etc/timezone
 
 USER root
 
+
+
+RUN cp /etc/yum.repos.d/CentOS-Linux-AppStream.repo /etc/yum.repos.d/appstream.repo \
+    && sed -i 's/^mirrorlist=/#mirrorlist=/g' /etc/yum.repos.d/appstream.repo \
+    && sed -i 's/^#baseurl=/baseurl=/g' /etc/yum.repos.d/appstream.repo \
+    && sed -i 's|baseurl=.*|baseurl=http://mirror.centos.org/centos/$releasever/AppStream/$basearch/os/|g' /etc/yum.repos.d/appstream.repo
+
 # RUN sed -i "s/mirrorlist=/#mirrorlist=/g" /etc/yum.repos.d/CentOS-Linux-* \
 #     && sed -i "s/#baseurl=http:\/\/mirror.centos.org/baseurl=http:\/\/mirror.kakao.com/g" /etc/yum.repos.d/CentOS-Linux-*
 
