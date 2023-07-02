@@ -18,7 +18,7 @@ RUN yum install -y sudo passwd shadow-utils \
         which net-tools iputils procps-ng \
         curl wget openssh-clients vim \
     && yum clean all \
-    && rm -rf /var/cache/yum/*
+    && rm -rf /var/cache/dnf/*
 
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
     && cp -rf /etc/skel/.bash* /root/. \
