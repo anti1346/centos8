@@ -11,8 +11,8 @@ RUN echo $TZ > /etc/timezone
 
 USER root
 
-RUN sed -i "s/mirrorlist=/#mirrorlist=/g" /etc/yum.repos.d/CentOS-* \
-    && sed -i "s/#baseurl=http:\/\/mirror.centos.org/baseurl=http:\/\/mirror.kakao.com/g" /etc/yum.repos.d/CentOS-*
+# RUN sed -i "s/mirrorlist=/#mirrorlist=/g" /etc/yum.repos.d/CentOS-Linux-* \
+#     && sed -i "s/#baseurl=http:\/\/mirror.centos.org/baseurl=http:\/\/mirror.kakao.com/g" /etc/yum.repos.d/CentOS-Linux-*
 
 RUN yum install -y sudo passwd shadow-utils \
         which net-tools iputils procps-ng \
