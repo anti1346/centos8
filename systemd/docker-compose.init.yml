@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  centos:
+    image: anti1346/centos8:systemd
+    restart: unless-stopped
+    hostname: centos
+    container_name: centos
+    privileged: true
+    user: root
+    working_dir: /root/
+    volumes:
+      - /usr/share/zoneinfo/Asia/Seoul:/etc/localtime:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    command: /sbin/init
