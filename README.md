@@ -26,4 +26,3 @@ docker exec -it centos8 bash
 ```
 docker run -it --rm --privileged --name centos8 anti1346/centos8:latest bash
 ```
-# centos8
